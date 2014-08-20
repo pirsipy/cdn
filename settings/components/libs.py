@@ -1,0 +1,6 @@
+# grappelli
+GRAPPELLI_ADMIN_TITLE = 'cdn'
+
+# jinja2
+DEFAULT_JINJA2_TEMPLATE_EXTENSION = '.jhtml'
+# JINJA2_BYTECODE_CACHE_ENABLE = True  # default False

@@ -1,0 +1,65 @@
+{% load i18n %}
+{% load spurl %}
+{% if is_paginated %}
+    <div class="paging-hold pagination clearfix">
+        {% if page_obj.has_previous %}
+            <div class="item prev"><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.previous_page_number }}" %}">{% trans "Prev" %}</a></div>
+            <div class="item"><a href="{% spurl base=request.get_full_path set_query="page=1" %}">1</a></div>
+        {% endif %}
+
+        {% if page_obj.number > 3 %}<div class="item">...</div>{% endif %}
+
+        {% if page_obj.has_previous and page_obj.previous_page_number != 1 %}
+            <div class="item"><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.previous_page_number }}" %}">{{ page_obj.previous_page_number }}</a></div>
+        {% endif %}
+
+        <div class="item active"><a class="text-color {{ section.get_color_display }}" href="#">{{ page_obj.number }}</a></div>
+
+        {% if page_obj.has_next and page_obj.next_page_number != page_obj.paginator.num_pages %}
+            <div class="item"><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.next_page_number }}" %}">{{ page_obj.next_page_number }}</a></div>
+        {% endif %}
+
+        {% if page_obj.number != page_obj.paginator.num_pages and page_obj.paginator.num_pages != page_obj.next_page_number and page_obj.paginator.num_pages != page_obj.number|add:"2" %}<div class="item">...</div>{% endif %}
+
+        {% if page_obj.has_next %}
+            <div class="item"><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.paginator.num_pages }}" %}">{{ page_obj.paginator.num_pages }}</a></div>
+            <div class="item next"><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.next_page_number }}" %}">{% trans "Next" %}</a></div>
+        {% endif %}
+    </div>
+{% endif %}
+
+{# FOR BOOTSTRAP #}
+{% load spurl %}
+{% if is_paginated %}
+<div style="text-align: center;">
+    <ul class="pagination pagination-lg">
+        {% if page_obj.has_previous %}
+            <li><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.previous_page_number }}" %}">«</a></li>
+            <li><a href="{% spurl base=request.get_full_path set_query="page=1" %}">1</a></li>
+        {% else %}
+            <li class="disabled"><a href="#" onclick="return false;">«</a></li>
+        {% endif %}
+
+        {% if page_obj.number > 3 %}<li class="disabled"><a href="#" onclick="return false;">...</a></li>{% endif %}
+
+        {% if page_obj.has_previous and page_obj.previous_page_number != 1 %}
+            <li><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.previous_page_number }}" %}">{{ page_obj.previous_page_number }}</a></li>
+        {% endif %}
+
+        <li><a href="#">{{ page_obj.number }}</a></li>
+
+        {% if page_obj.has_next and page_obj.next_page_number != page_obj.paginator.num_pages %}
+            <li><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.next_page_number }}" %}">{{ page_obj.next_page_number }}</a></li>
+        {% endif %}
+
+        {% if page_obj.number != page_obj.paginator.num_pages and page_obj.paginator.num_pages != page_obj.next_page_number and page_obj.paginator.num_pages != page_obj.number|add:"2" %}<li class="disabled"><a href="#" onclick="return false;">...</a></li>{% endif %}
+
+        {% if page_obj.has_next %}
+            <li><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.paginator.num_pages }}" %}">{{ page_obj.paginator.num_pages }}</a></li>
+            <li><a href="{% spurl base=request.get_full_path set_query="page={{ page_obj.next_page_number }}" %}">»</a></li>
+        {% else %}
+            <li class="disabled"><a href="#" onclick="return false;">»</a></li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}

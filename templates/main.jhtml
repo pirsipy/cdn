@@ -1,0 +1,10 @@
+{% extends "base.jhtml" %}
+{% block title %}Main page{% endblock title %}
+{% block content %}
+    <h1>{{ 'it'.capitalize() }} {{ custom_upper('works') }}!</h1>
+    <h2>{{ _('dict example') }}</h2>
+    {% set test_dict = {'t1': 'text 1', 't2': 'text 2'} %}
+    <p>test_dict = {{ test_dict }}</p>
+    <p>test_dict['t1'] = {{ test_dict['t1'] }}</p>
+    <p>test_dict['t2'] = {{ test_dict['t2'] }}</p>
+{% endblock content %}

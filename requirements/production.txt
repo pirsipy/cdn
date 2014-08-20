@@ -1,0 +1,4 @@
+-r base.txt
+cython
+pulsar==0.8.2
+trollius==0.2

@@ -1,0 +1,39 @@
+import sys
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+TESTING = sys.argv[1:2] == ['test']
+
+DOMAIN = 'localhost:8000'
+
+if TESTING:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:'
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'cdn',
+            'USER': '',
+        }
+    }
+
+
+if not TESTING:
+    # debug toolbar settings
+    INTERNAL_IPS = ('127.0.0.1',)
+    DEBUG_TOOLBAR_PATCH_SETTINGS = False
+    INSTALLED_APPS += ('debug_toolbar',)
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+
+
+TEST_RUNNER = 'django_coverage.coverage_runner.CoverageRunner'
+COVERAGE_MODULE_EXCLUDES = ['tests$', 'settings$', 'urls$', 'locale$', 'filldb',
+                            '__init__', 'django', 'migrations', 'static']

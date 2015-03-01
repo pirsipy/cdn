@@ -28,6 +28,8 @@ env/
 
 # Project
 /public/
+/files/
+/cache/
 
 # Settings
 settings_local.py

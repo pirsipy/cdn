@@ -377,4 +377,4 @@ cdn:upload                       RUNNING    pid 2909, uptime 3:47:24
 |:---------------------------------------------------------|:--------------------------------------------------|:-----------|
 |[https://vk.com/stas.vilisov](https://vk.com/stas.vilisov)|[st@pirsipy.com](mailto:st@pirsipy.com?subject=CDN)|stas.pirsipy|
 
-@2015 [Pirsipy](https://pirsipy.com)
+@ 2015 [Pirsipy](https://pirsipy.com)

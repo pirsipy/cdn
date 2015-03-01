@@ -373,8 +373,8 @@ cdn:upload                       RUNNING    pid 2909, uptime 3:47:24
 
 По всем вопросам можно обращаться любым удобным способом:
 
-VK: [https://vk.com/stas.vilisov](https://vk.com/stas.vilisov)
-Email: [st@pirsipy.com](mailto:st@pirsipy.com?subject=CDN)
-Skype: stas.pirsipy
+|VK                                                        |Email                                              |Skype       |
+|:---------------------------------------------------------|:--------------------------------------------------|:-----------|
+|[https://vk.com/stas.vilisov](https://vk.com/stas.vilisov)|[st@pirsipy.com](mailto:st@pirsipy.com?subject=CDN)|stas.pirsipy|
 
 @2015 [Pirsipy](https://pirsipy.com)

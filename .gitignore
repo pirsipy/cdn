@@ -24,7 +24,6 @@ atlassian-ide-plugin.xml
 
 # Virtualenv
 env/
-.env/
 .env
 
 # Project
@@ -46,3 +45,5 @@ local.py
 *.log*
 
 *.pid
+.vagrant/
+*.box
